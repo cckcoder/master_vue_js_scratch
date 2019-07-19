@@ -1,0 +1,23 @@
+{
+  "name": "master_vue_js_scratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cckcoder/master_vue_js_scratch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cckcoder/master_vue_js_scratch/issues"
+  },
+  "homepage": "https://github.com/cckcoder/master_vue_js_scratch#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "vue": "^2.6.10"
+  }
+}

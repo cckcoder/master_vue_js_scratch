@@ -23,43 +23,56 @@ body {
 <div id="app">
 	<div class="container my-5">
 		<div class="row">
+
 			<div class="col-md-6">
 				<label for="">From</label>
-				<select id="" name="" class="form-control">
-					<option value="">USD</option>
-					<option value="">EUR</option>
+				<select v-model="from" id="" name="" class="form-control">
+					<option :value="currency.id" v-for="currency in formattedCurrencies">
+						{{ currency.currencyName }}
+					</option>
 				</select>
 			</div>
+
 			<div class="col-md-6">
 				<label for="">To</label>
-				<select id="" name="" class="form-control">
-					<option value="">USD</option>
-					<option value="">EUR</option>
+				<select v-model="to" id="" name="" class="form-control">
+					<option :value="currency.id" v-for="currency in formattedCurrencies">
+						{{ currency.currencyName }}
+					</option>
 				</select>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<input 
+					v-model="amount"
 					class="form-control my-5" 
 					type="text"
 					placeholder="Amount"
 				>
 
 				<div class="text-center">
-					<button class="btn btn-lg btn-primary">Convert</button>
+					<button 
+						:disabled="disabled"
+						@click="convertCurrency()"
+						class="btn btn-lg btn-primary"
+					>
+					{{ loading ? 'Converting...' : 'Convert' }}	
+					</button>
 				</div>
 			</div> 
 		</div>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<h1 class="text-center display-2 mt-5">54.03</h1>
+				<h1 class="text-center display-2 mt-5">
+					{{ calculateResult }}
+				</h1>
 			</div>
 		</div>
 	</div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./node_modules/axios/dist/axios.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
